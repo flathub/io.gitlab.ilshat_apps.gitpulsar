@@ -9,6 +9,7 @@ command: gitpulsar-gtk
 finish-args:
   - --share=network
   - --filesystem=home
+  - --socket=ssh-auth
   - --socket=wayland
   - --socket=fallback-x11
   - --share=ipc
@@ -21,6 +22,18 @@ build-options:
     CARGO_REGISTRIES_CRATES_IO_PROTOCOL: sparse
 
 modules:
+  - name: git
+    make-args:
+      - NO_TCLTK=1
+      - INSTALL_SYMLINKS=1
+    make-install-args:
+      - NO_TCLTK=1
+      - INSTALL_SYMLINKS=1
+    sources:
+      - type: archive
+        url: https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.48.1.tar.xz
+        sha256: 1c5d545f5dc1eb51e95d2c50d98fdf88b1a36ba1fa30e9ae5d5385c6024f82ad
+
   - name: gitpulsar
     buildsystem: simple
     build-options:
@@ -47,5 +60,5 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/ilshat-apps/gitpulsar.git
-        commit: 18fd2d9c9133a81a2d59240b2cad1051e1207889
+        commit: f92a1ba38ee769010be70992baaf6ca7c0c0d7ee
       - cargo-sources.json
