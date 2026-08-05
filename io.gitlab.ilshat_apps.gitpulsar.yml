@@ -60,6 +60,6 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/ilshat-apps/gitpulsar.git
-        tag: v1.1.0
-        commit: 3e81159c56be1d48119df6a009838fa5ac9c4924
+        tag: v1.2.0
+        commit: ffa42285b5b4252ec942b160df9d3336b2e2c356
       - cargo-sources.json
