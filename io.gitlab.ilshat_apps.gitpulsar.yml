@@ -10,6 +10,10 @@ finish-args:
   - --share=network
   - --filesystem=home
   - --socket=ssh-auth
+  # "Open in <editor>" launches the user's IDE on the host via
+  # flatpak-spawn --host; without this the sandbox can neither see nor
+  # start host applications.
+  - --talk-name=org.freedesktop.Flatpak
   - --socket=wayland
   - --socket=fallback-x11
   - --share=ipc
@@ -60,6 +64,6 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/ilshat-apps/gitpulsar.git
-        tag: v1.2.0
-        commit: ffa42285b5b4252ec942b160df9d3336b2e2c356
+        tag: v1.3.0
+        commit: 3174adfaeeb610e074877c2561f7e18466289076
       - cargo-sources.json
